@@ -4,6 +4,7 @@
 <head>
     <link type="text/css" rel="stylesheet" href="C:\Users\evans\Documents\UNI\Client-side Scripting\CODE\CSS\main.css">
     <script type="text/javascript" src="C:\Users\evans\Documents\UNI\Client-side Scripting\CODE\JAVASCRIPT\main.js"></script>
+
 </head>
 
 <body onload="main()">
@@ -17,32 +18,33 @@
             <ul>
                 <li><a href="order.html">Order</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <div id="clock"></div>
             </ul>
+            <div id="clock"></div>
         </div>
 
-        <form id="order">
-            <label for="size">Select your pizza base*:</label>
-            <p><input type="radio" name="size" value="size_small"> Small: <span class="price">£4.99</span>
-                <input type="radio" name="size" value="size_medium"> Medium: <span class="price">£7.49</span>
-                <input type="radio" name="size" value="size_large"> Large: <span class="price">£9.99</span> </p>
+        <div id="order">
+            <form id="order">
+                <label for="size">Select your pizza base*:</label>
+                <p><input type="radio" name="size" value="size_small" id="size"> Small: <span class="price">£4.99</span>
+                    <input type="radio" name="size" value="size_medium" id="size"> Medium: <span class="price">£7.49</span>
+                    <input type="radio" name="size" value="size_large" id="size"> Large: <span class="price">£9.99</span> </p>
 
-            <label for="topping">Select one or more toppings*:</label>
-            <p><input type="radio" name="topping"> Cheese: <span class="price">£0.20</span> </p>
+                <label for="topping">Select one or more toppings*:</label>
+                <p><input type="radio" name="topping" id="topping"> Cheese: <span class="price">£0.20</span> </p>
 
-            <label for="side">Sides:</label>
-            <p><input type="radio" name="side"> Cheese Dough Balls: <span class="price">£2.49</span> </p>
+                <label for="side">Sides:</label>
+                <p><input type="radio" name="side"> Cheese Dough Balls: <span class="price">£2.49</span> </p>
 
-            <p> <label for="delivery_info">Delivery Information</label></p>
-            <p> <label for="address">Address:</label>
-                <input type="text" name="address"></p>
-            <p> <label for="postcode">Postcode:</label>
-                <input type="text" name="postcode"></p>
+                <p> <label for="delivery_info">Delivery Information</label></p>
+                <p> <label for="address">Address:</label>
+                    <input type="text" name="address"></p>
+                <p> <label for="postcode">Postcode:</label>
+                    <input type="text" name="postcode"></p>
 
-            <p><input type="submit" onClick="validateForm(event);" name="place_order" value="Place Order"></p>
-            <p><input type="reset" name="reset" value="Reset"></p>
-        </form>
-
+                <p><input type="submit" onClick="validateForm(event);" name="place_order" value="Place Order"></p>
+                <p><input type="reset" name="reset" value="Reset"></p>
+            </form>
+        </div>
     </div>
 
 </body>

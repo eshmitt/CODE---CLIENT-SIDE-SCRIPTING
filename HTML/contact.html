@@ -19,6 +19,7 @@
 
     <link type="text/css" rel="stylesheet" href="C:\Users\evans\Documents\UNI\Client-side Scripting\CODE\CSS\main.css">
     <script type="text/javascript" src="C:\Users\evans\Documents\UNI\Client-side Scripting\CODE\JAVASCRIPT\main.js"></script>
+
 </head>
 
 <body onload="main()">
@@ -32,13 +33,13 @@
             <ul>
                 <li><a href="order.html">Order</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <div id="clock"></div>
             </ul>
+            <div id="clock"></div>
         </div>
 
         <div id="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.5230690333738!2d-1.4102198840731264!3d50.91404036173289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487476af3e6d7fcb%3A0xecb67967aa091323!2sSolent+Pizza&#39;s!5e0!3m2!1sen!2suk!4v1522250930448"
-                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                width="920" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
 
         <div id="contact">
@@ -46,17 +47,17 @@
                 <p>Need to get in contact? Please fill out the form below</p>
             </h2>
             <form id="contactform">
-                <p><input type="text" name="userFname" placeholder="First Name*"></p>
-                <p id="errorName" style="display: none"> Required</p>
-                <p><input type="text" name="userLname" placeholder="Last Name*"></p>
-                <p id="errorName" style="display: none"> Required</p>
-                <p><input type="email" name="userEmail" placeholder="Email*"></p>
+                <p><input type="text" name="first_name" placeholder="First Name*" id="first_name"></p>
+                <p id="errorFirst_name" style="display: none"> Required</p>
+                <p><input type="text" name="last_name" placeholder="Last Name*" id="last_name"></p>
+                <p id="errorLast_name" style="display: none"> Required</p>
+                <p><input type="email" name="email" placeholder="Email*" id="email"></p>
                 <p id="errorEmail" style="display: none"> Required</p>
-                <p><input type="number" name="userPhone" placeholder="Phone Number (optional)"></p>
-                <p><input type="text area" name="userMessage" placeholder="Message"></p>
+                <p><input type="number" name="phone" placeholder="Phone Number (optional)" id="phone"></p>
+                <p><input type="text area" name="message" placeholder="Message" id="message"></p>
                 <p id="errorMessage" style="display: none"> Required</p>
 
-                <input type="submit">
+                <input type="submit" onClick="validateForm(event);" name="contact_submit" value="Submit"></p>
 
             </form>
         </div>

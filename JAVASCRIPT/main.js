@@ -3,29 +3,40 @@ var database = firebase.database();
 
 function formSubmit(event) {
 
-    event.preventDefault();
-    var contactform = document.getElementById('contactform');
+    var contact = document.getElementById('contact');
     var order = document.getElementById('order');
-    var userFname = contactform.userFname.value;
-    var userLname = contactform.userLname.value;
-    var userEmail = contactform.userEmail.value;
-    var userPhone = contactform.userPhone.value;
-    var userMessage = contactform.userMessage.value;
+    var first_name = contact.first_name.value;
+    var last_name = contact.last_name.value;
+    var email = contact.email.value;
+    var phone = contact.phone.value;
+    var message = contact.message.value;
+    var size = order.size.value;
+    var topping = order.topping.value;
 
     // form validation
-    var key = database.ref().child('contactform').push().key;
+    var key = database.ref().child('contact').push().key;
 
     // the key is the appended to our database reference and set
-    database.ref('contactform/' + key).set({
-        userFname: userFname,
-        userLname: userLname,
-        userEmail: userEmail,
-        userPhone: userPhone,
-        userMessage: userMessage
+    database.ref('contact/' + key).set({
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        phone: phone,
+        message: message,
+        size: size,
+        topping: topping
+
     })
 }
 
 function main() {
+
+    console.log("in main function");
+    
+    var myForm = document.getElementById("contact");
+    myForm.addEventListener("submit",validateForm);
+
+    // start clock 
 
     // set up a new date object
     var today = new Date();
@@ -55,7 +66,8 @@ function main() {
         if (i < 10) { i = "0" + i }
         return i;
     }
-
+    // end clock
+    
     function isMornAft(curr_hour) {
         // create 12 hour clock - with am and pm
         if (curr_hour >= 12 && curr_hour < 24) {
@@ -65,26 +77,76 @@ function main() {
             return "am"
         }
     }
-    }
+    
 
 
     // onload callback function
     console.log("in main function");
 
-    var myForm = document.getElementById("contactform");
-    myForm.addEventListener("submit", validateForm);
-
-    var order = document.getElementById("order");
-    order.addEventListener("submit", validateForm);
 
     // validate callback function
     function validateForm(event) {
-        event.preventDefault();
         console.log("validating form");
         var formValidation = true;
-        var myForm = document.getElementById("contactform");
+        var myForm = document.getElementById("contact");
         var order = document.getElementById("order");
-        event.preventDefault();
+
+        if (myForm.first_name.value == "") {
+            formValidation = false;
+            // display error
+            document.getElementById("errorFirst_name").style;
+            // stop form from submitting
+            event.preventDefault();
+        }
+
+        else {
+            formValidation = true;
+            document.getElementById("errorFirst_name").style.display = "none";
+
+        }
+
+        if (myForm.last_name.value == "") {
+            formValidation = false;
+            // display error
+            document.getElementById("errorLast_name").style.display = "block";
+            // stop form from submitting
+            event.preventDefault();
+        }
+
+        else {
+            formValidation = true;
+            document.getElementById("errorLast_name").style.display = "none";
+
+        }
+
+
+        if (myForm.email.value == "") {
+            formValidation = false;
+            // display error
+            document.getElementById("errorEmail").style.display = "block";
+            // stop form from submitting
+            event.preventDefault();
+        }
+
+        else {
+            formValidation = true;
+            document.getElementById("errorEmail").style.display = "none";
+
+        }
+
+
+        if (myForm.message.value == "") {
+            formValidation = false;
+            // display error
+            document.getElementById("errorMessage").style.display = "block";
+            // stop form from submitting
+            event.preventDefault();
+        }
+
+        else {
+            document.getElementById("errorMessage").style.display = "none";
+
+        }
 
         if (order.size.value == "") {
             formValidation = false;
@@ -113,67 +175,14 @@ function main() {
 
         }
 
-        if (myForm.userFname.value == "") {
-            formValidation = false;
-            // display error
-            document.getElementById("errorName").style.display = "block";
-            // stop form from submitting
-            event.preventDefault();
-        }
-
-        else {
-            formValidation = true;
-            document.getElementById("errorName").style.display = "none";
-
-        }
-
-        if (myForm.userLname.value == "") {
-            formValidation = false;
-            // display error
-            document.getElementById("errorName").style.display = "block";
-            // stop form from submitting
-            event.preventDefault();
-        }
-
-        else {
-            formValidation = true;
-            document.getElementById("errorName").style.display = "none";
-
-        }
-
-
-        if (myForm.userEmail.value == "") {
-            formValidation = false;
-            // display error
-            document.getElementById("errorEmail").style.display = "block";
-            // stop form from submitting
-            event.preventDefault();
-        }
-
-        else {
-            formValidation = true;
-            document.getElementById("errorEmail").style.display = "none";
-
-        }
-
-
-        if (myForm.userMessage.value == "") {
-            formValidation = false;
-            // display error
-            document.getElementById("erroMessage").style.display = "block";
-            // stop form from submitting
-            event.preventDefault();
-        }
-
-        else {
-            document.getElementById("errorMessage").style.display = "none";
-
-        }
-
+        var myForm = document.getElementById("contact");
+        myForm.addEventListener("submit", validateForm);
+    
+        var order = document.getElementById("order");
+        order.addEventListener("submit", validateForm);
     }
 
-
-    // create slideshow variabl
+    // create slideshow variable
     var indexSlideshow = 0; {
         imagecarousel();
 
@@ -192,4 +201,4 @@ function main() {
         // set image change to 3 seconds
         setTimeout(imagecarousel, 3000);
     }
-    
+}
