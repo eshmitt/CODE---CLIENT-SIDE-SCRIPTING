@@ -2,34 +2,25 @@
 <html>
 
 <head>
-
-    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCefB3YRScya7FeAC0zM-S4NtKKXgHd3jw",
-            authDomain: "form-validation-client-side.firebaseapp.com",
-            databaseURL: "https://form-validation-client-side.firebaseio.com",
-            projectId: "form-validation-client-side",
-            storageBucket: "form-validation-client-side.appspot.com",
-            messagingSenderId: "451281901123"
-        };
-        firebase.initializeApp(config);
-    </script>
-
     <link type="text/css" rel="stylesheet" href="C:\Users\evans\Documents\UNI\Client-side Scripting\CODE\CSS\main.css">
     <script type="text/javascript" src="C:\Users\evans\Documents\UNI\Client-side Scripting\CODE\JAVASCRIPT\main.js"></script>
-
 </head>
 
 <body onload="main()">
     <div id="wrapper">
         <div id="logo">
             <a href="index.html">
-                <img src="logo.jpg"> 
+                <img src="C:\Users\evans\Documents\UNI\Client-side Scripting\CODE\IMAGES\logo.png"> 
             </a>
         </div>
         <div id="header">
+                <div id="address">
+                    <h3>COLLECT from -</h3>
+                    <p>13 Wilton Avenue,
+                        Southampton,
+                        SO15 2HA
+                    </p>
+                </div>
             <ul>
                 <li><a href="order.html">Order</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -39,23 +30,25 @@
 
         <div id="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.5230690333738!2d-1.4102198840731264!3d50.91404036173289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487476af3e6d7fcb%3A0xecb67967aa091323!2sSolent+Pizza&#39;s!5e0!3m2!1sen!2suk!4v1522250930448"
-                width="920" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                width="1080" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
 
-        <div id="contact">
+        
+
+        <div id="contactform">
             <h2>
                 <p>Need to get in contact? Please fill out the form below</p>
             </h2>
-            <form id="contactform">
-                <p><input type="text" name="first_name" placeholder="First Name*" id="first_name"></p>
-                <p id="errorFirst_name" style="display: none"> Required</p>
-                <p><input type="text" name="last_name" placeholder="Last Name*" id="last_name"></p>
-                <p id="errorLast_name" style="display: none"> Required</p>
-                <p><input type="email" name="email" placeholder="Email*" id="email"></p>
-                <p id="errorEmail" style="display: none"> Required</p>
-                <p><input type="number" name="phone" placeholder="Phone Number (optional)" id="phone"></p>
-                <p><input type="text area" name="message" placeholder="Message" id="message"></p>
-                <p id="errorMessage" style="display: none"> Required</p>
+            <form id="contact">
+                <input type="text" name="first_name" placeholder="First Name*" id="first_name" onchange="validateForm(event)">
+                <p id="errorFirst_name" style="display: none"></p>
+                <input type="text" name="last_name" placeholder="Last Name*" id="last_name" onchange="validateForm(event)">
+                <p id="errorLast_name" style="display: none"></p>
+                <input type="email" name="email" placeholder="Email*" id="email" onchange="validateForm(event)">
+                <p id="errorEmail" style="display: none"></p>
+                <input type="number" name="phone" placeholder="Phone Number (optional)" id="phone" onchange="validateForm(event)">
+                <input type="text area" name="message" placeholder="Message" id="message" onchange="validateForm(event)">
+                <p id="errorMessage" style="display: none"> Please input ALL required inputs.</p>
 
                 <input type="submit" onClick="validateForm(event);" name="contact_submit" value="Submit"></p>
 

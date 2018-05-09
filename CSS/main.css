@@ -1,9 +1,9 @@
 #wrapper {
     font-family: arial, sans-serif;
-    width:920px;
+    width:1080px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    
 }
 
 #logo {
@@ -12,6 +12,7 @@
 
 #header {
     text-align: center;
+    width: 1080px;
 }
 
 
@@ -29,55 +30,82 @@ li {
     display: inline;
 }
 
-.active {
-    background-color: red;
-    color: white;
-}
+
 
 hr {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
 }
 
 #Pizza1 {
     float: left;
+    padding-left: 45px;
+    padding-bottom: 20px;
 }
 
 #Pizza2 {
     float: left;
+    padding-left: 45px;
+    padding-bottom: 20px;
 }
 
 #Pizza3 {
     float: left;
+    padding-left: 45px;
+    padding-bottom: 20px;
 }
 
 #Side1 {
     float: left;
+    padding-left: 45px;
+    padding-bottom: 20px;
 }
 
 #Side2 {
     float: left;
+    padding-left: 45px;
+    padding-bottom: 20px;
 }
 
 #Side3 {
     float: left;
+    padding-left: 45px;
+    padding-bottom: 20px;
 }
 
 #Drink1 {
     float: left;
+    padding-left: 45px;
+    
 }
 
 #Drink2 {
     float: left;
+    padding-left: 45px;
 }
 
 #Drink3 {
     float: left;
+    padding-left: 45px;
+}
+
+h2 {
+    text-align: center;
+
 }
 
 #contact {
-    color: white;
+    text-align: center;
+
+}
+
+#address {
+    float: left;
+}
+
+#footer {
+    background-color: #f2f2f2;
+    clear: left;
+    text-align: center;
 }

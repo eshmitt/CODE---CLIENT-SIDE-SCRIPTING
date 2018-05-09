@@ -1,40 +1,18 @@
-// get a reference to the firebase database
-var database = firebase.database();
-
 function formSubmit(event) {
 
     var contact = document.getElementById('contact');
-    var order = document.getElementById('order');
     var first_name = contact.first_name.value;
     var last_name = contact.last_name.value;
     var email = contact.email.value;
     var phone = contact.phone.value;
     var message = contact.message.value;
-    var size = order.size.value;
-    var topping = order.topping.value;
+    
 
-    // form validation
-    var key = database.ref().child('contact').push().key;
-
-    // the key is the appended to our database reference and set
-    database.ref('contact/' + key).set({
-        first_name: first_name,
-        last_name: last_name,
-        email: email,
-        phone: phone,
-        message: message,
-        size: size,
-        topping: topping
-
-    })
 }
 
 function main() {
 
-    console.log("in main function");
-    
-    var myForm = document.getElementById("contact");
-    myForm.addEventListener("submit",validateForm);
+
 
     // start clock 
 
@@ -81,41 +59,53 @@ function main() {
 
 
     // onload callback function
-    console.log("in main function");
+    console.log("myForm function");
+    var myForm = document.getElementById("contact");
+    myForm.addEventListener("submit", validateForm);
 
 
+    console.log("order function");
+    var order = document.getElementById('size');
+    order.addEventListener("submit")
+    var size = size.size.value;
+    var topping = size.topping.value;
+
+}
     // validate callback function
     function validateForm(event) {
-        console.log("validating form");
         var formValidation = true;
         var myForm = document.getElementById("contact");
-        var order = document.getElementById("order");
 
         if (myForm.first_name.value == "") {
             formValidation = false;
             // display error
-            document.getElementById("errorFirst_name").style;
+            document.getElementById("errorFirst_name").style.display = "block";
+            // change asset background color
+            document.getElementById("first_name").style.backgroundColor = "red";
             // stop form from submitting
             event.preventDefault();
-        }
-
-        else {
+            
+        }   else {
             formValidation = true;
             document.getElementById("errorFirst_name").style.display = "none";
+            document.getElementById("first_name").style.backgroundColor = "";
 
         }
 
         if (myForm.last_name.value == "") {
             formValidation = false;
             // display error
-            document.getElementById("errorLast_name").style.display = "block";
+            document.getElementById("errorFirst_name").style.display = "block";
+            // change asset background color
+            document.getElementById("last_name").style.backgroundColor = "red";
             // stop form from submitting
             event.preventDefault();
-        }
 
-        else {
+        }   else {
+            
             formValidation = true;
             document.getElementById("errorLast_name").style.display = "none";
+            document.getElementById("last_name").style.backgroundColor = "";
 
         }
 
@@ -124,13 +114,15 @@ function main() {
             formValidation = false;
             // display error
             document.getElementById("errorEmail").style.display = "block";
+            // change asset background color
+            document.getElementById("email").style.backgroundColor = "red";
             // stop form from submitting
             event.preventDefault();
-        }
-
-        else {
+            
+        }   else {
             formValidation = true;
             document.getElementById("errorEmail").style.display = "none";
+            document.getElementById("email").style.backgroundColor = "";
 
         }
 
@@ -139,48 +131,20 @@ function main() {
             formValidation = false;
             // display error
             document.getElementById("errorMessage").style.display = "block";
+            // change asset background color
+            document.getElementById("message").style.backgroundColor = "red";
             // stop form from submitting
             event.preventDefault();
-        }
 
-        else {
+        }   else {
+            formValidation = true;
             document.getElementById("errorMessage").style.display = "none";
+            document.getElementById("message").style.backgroundColor = "";
 
         }
-
-        if (order.size.value == "") {
-            formValidation = false;
-            //display error 
-            document.getElementById("size").style.display = "block";
-            // stop form from submitting
-            event.preventDefault();
-        }
-
-        else {
-            formValidation = true;
-            document.getElementById("size").style.display = "none";
-
-        }
-        if (order.topping.value == "") {
-            formValidation = false;
-            //display error 
-            document.getElementById("topping").style.display = "block";
-            // stop form from submitting
-            event.preventDefault();
-        }
-
-        else {
-            formValidation = true;
-            document.getElementById("topping").style.display = "none";
-
-        }
-
-        var myForm = document.getElementById("contact");
-        myForm.addEventListener("submit", validateForm);
-    
-        var order = document.getElementById("order");
-        order.addEventListener("submit", validateForm);
     }
+
+
 
     // create slideshow variable
     var indexSlideshow = 0; {
@@ -201,4 +165,3 @@ function main() {
         // set image change to 3 seconds
         setTimeout(imagecarousel, 3000);
     }
-}
