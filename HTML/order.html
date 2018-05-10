@@ -22,28 +22,6 @@
             <div id="clock"></div>
         </div>
 
-        <form id="size">
-                <label for="size">Select your pizza base*:</label>
-                <input type="radio" name="radio" value="size_small" id="size"> Small: <span class="price">£4.99</span>
-                <input type="radio" name="radio" value="size_medium" id="size"> Medium: <span class="price">£7.49</span>
-                <input type="radio" name="radio" value="size_large" id="size"> Large: <span class="price">£9.99</span>
-
-                <p id="errorSize" style="display:none">Please select a pizza size</p>
-        </form>
-
-        <form id="topping">
-            <label for="topping">Select one or more toppings*:</label>
-            <input type="radio" name="topping" id="topping"> Cheese: <span class="price">£0.20</span>
-        </form>
-
-        <form id="side">
-            <label for="side">Sides:</label>
-            <input type="radio" name="side"> Cheese Dough Balls: <span class="price">£2.49</span>
-        </form>
-
-        <p id="order_buttons"><input type="submit" onClick="validateForm(event);" name="place_order" value="Place Order">
-        <input type="reset" name="reset" value="Reset"></p>
-
         <div id="delivery_info">
             <p><label for="delivery_info">Delivery Information:</label></p>
             <p><label for="address">Address:</label>
@@ -51,7 +29,36 @@
             <p><label for="postcode">Postcode:</label>
             <input type="text" name="postcode"></p>
         </div>
+
+        <form id="size">
+                <p id="foodError" style="display:none">Please select a pizza size and toppings</p>
+                <p><label for="size">Select your pizza base*:</label></p>
+                <p><input type="radio" name="radio" value="size_small" id="ssize"> Small: <span class="price">£4.99</span></p>
+                <p><input type="radio" name="radio" value="size_medium" id="msize"> Medium: <span class="price">£7.49</span></p>
+                <p><input type="radio" name="radio" value="size_large" id="lsize"> Large: <span class="price">£9.99</span></p>
+
+                
+        </form>
+
+        <form id="topping">
+            <p id="foodError" style="display:none">Please select a topping</p>
+            <p><label for="topping">Select one or more toppings*:</label></p>
+            <p><input type="radio" name="topping" id="topping"> Cheese: <span class="price">£0.20</span></p>
+        </form>
+
+        <form id="side">
+            <p><label for="side">Sides:</label></p>
+            <p><input type="radio" name="side"> Cheese Dough Balls: <span class="price">£2.49</span></p>
+        </form>
+
+        <p id="order_buttons"><input type="submit" onClick="orderCheck()" name="place_order" value="Place Order">
+        <input type="reset" name="reset" value="Reset"></p>
+
         
+        
+        <div id="footer">
+            <p>Privacy Policy - Site Map - © 2018 Solent Pizza</p>
+        </div>
     </div>
 
 </body>

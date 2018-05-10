@@ -63,13 +63,6 @@ function main() {
     var myForm = document.getElementById("contact");
     myForm.addEventListener("submit", validateForm);
 
-
-    console.log("order function");
-    var order = document.getElementById('size');
-    order.addEventListener("submit")
-    var size = size.size.value;
-    var topping = size.topping.value;
-
 }
     // validate callback function
     function validateForm(event) {
@@ -164,4 +157,33 @@ function main() {
         slide[indexSlideshow - 1].style.display = "block";
         // set image change to 3 seconds
         setTimeout(imagecarousel, 3000);
+    }
+
+    function orderCheck () {
+        var foodError = document.getElementById("foodError")
+        var size_small = document.getElementById("ssize")
+        var size_medium = document.getElementById("msize")
+        var size_large = document.getElementById("lsize")
+        var topping = document.getElementById("topping")
+
+        if(size_small.checked == true
+            || size_medium.checked == true
+            || size_large.checked == true) {
+            document.getElementById("foodError").style.display = "none";
+            window.location.reload();
+        }
+
+        else {
+            document.getElementById("foodError").style.display = "block";
+        }
+
+        if(topping.checked == true) {
+            document.getElementById("foodError").style.display = "none";
+            window.location.reload();
+        }
+
+        else {
+            document.getElementById("foodError").style.display = "block";
+        }
+
     }
