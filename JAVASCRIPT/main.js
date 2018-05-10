@@ -186,4 +186,36 @@ function main() {
             document.getElementById("foodError").style.display = "block";
         }
 
+    function rollover(Image) {
+        Image.src = "pizza1.png";
     }
+
+    function rolloff(Image) {
+        Image.src = "pizza2.png";
+    }
+
+
+    // create new array for sizes of pizza
+    var size_prices = new Array();
+    size_prices["size_small"]= 4.99;
+    size_prices["size_medium"]= 7.49;
+    size_prices["size_large"]= 9.99;
+
+    // find the price based on the size of the pizza
+    function getSizePrice(){
+        var pizzaPrice=0;
+        // reference to form id "size"
+        var sizeForm = document.forms["size"];
+        // reference name of the radio buttons for size of pizza
+        var selectedSize = sizeForm.elements["selectsize"]
+
+        for(var i = 0; i < selectedSize.length; i++){
+            sizePrice = size_prices[selectedSize[i].value];
+            break;
+        }
+
+        return pizzaPrice;
+
+    }
+
+}

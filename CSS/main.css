@@ -30,6 +30,7 @@ h3 {
     text-align: center
 }
 
+
 #imagecarousel {
     text-align: center;
 }
@@ -126,11 +127,10 @@ h2 {
 }
 
 #address {
-    float: left;
+    text-align: center;
 }
 
 #footer {
-    position:absolute;
     left:0;
     bottom:0;
     width:100%;
@@ -140,6 +140,51 @@ h2 {
 }
 
 #delivery_info {
-    float: right;
-    
+    width: 50%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#sizeOrder {
+    width: 50%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#toppingOrder {
+    width: 50%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#sideOrder {
+    width: 50%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#fooderror {
+    width: 75%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
